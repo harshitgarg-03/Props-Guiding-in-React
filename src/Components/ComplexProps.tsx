@@ -1,62 +1,58 @@
 import { useState } from "react";
 
 interface ProfileCardProps {
-  user : {
-        name: string,
-        email: string,
-        avatar: string,
-        role: string,
-        status: string,
-        stats?: {
-          posts?: number,
-          followers?: number,
-          following?: number,
-          Project?: number,
-          Commits?: number,
-          Reviews?: number
-        }
-  }
+  user: {
+    name: string;
+    email: string;
+    avatar: string;
+    role: string;
+    status: string;
+    stats?: {
+      posts?: number;
+      followers?: number;
+      following?: number;
+      Project?: number;
+      Commits?: number;
+      Reviews?: number;
+    };
+  };
 
-  theme : {
-        backgroundColor: string,
-        textColor: string,
-        avatarBg: string,
-        badgeBg: string
-  }
+  theme: {
+    backgroundColor: string;
+    textColor: string;
+    avatarBg: string;
+    badgeBg: string;
+  };
 
-  actions : {
-        primary: {
-          label: string,
-          onClick: () => string,
-          className: string,
-        },
-        secondary: {
-          label: string,
-          onClick: () => string,
-          className: string,
-        },
-  }
+  actions: {
+    primary: {
+      label: string;
+      onClick: () => string;
+      className: string;
+    };
+    secondary: {
+      label: string;
+      onClick: () => string;
+      className: string;
+    };
+  };
 }
-function ProfileCard({user, theme, actions} : ProfileCardProps){
+function ProfileCard({ user, theme, actions }: ProfileCardProps) {
   return (
-    <div className={`${theme.backgroundColor} ${theme.textColor} p-8 m-4 mt-8 rounded-2xl`} >
-
-
-     
+    <div
+      className={`${theme.backgroundColor} ${theme.textColor} p-8 m-4 mt-8 rounded-2xl`}
+    >
       <div className="flex items-center gap-6 mb-4">
-       
         <div
           className={`${theme.avatarBg} text-3xl w-14 h-14 flex items-center justify-center rounded-full`}
         >
           {user.avatar}
         </div>
 
-        
         <div>
           <h3 className="text-xl font-semibold">{user.name}</h3>
           <p className="text-sm mb-2 opacity-80">{user.email}</p>
 
-         
           <div className="flex gap-2 mt-1">
             <span
               className={`${theme.badgeBg} px-3 py-1 rounded-full text-xs font-medium`}
@@ -101,13 +97,12 @@ function ProfileCard({user, theme, actions} : ProfileCardProps){
           {actions.secondary.label}
         </button>
       </div>
-      
     </div>
-  )
+  );
 }
 
 function ComplexProps() {
-  const [Message, setMessage] = useState<string>("User's Profile")
+  const [Message, setMessage] = useState<string>("User's Profile");
   const Users = [
     {
       user: {
@@ -122,14 +117,14 @@ function ComplexProps() {
           following: 421,
         },
       },
-  
+
       theme: {
         backgroundColor: "bg-gradient-to-br from-purple-300 to-blue-100",
         textColor: "text-gray-800",
         avatarBg: "bg-purple-500",
         badgeBg: "bg-purple-400",
       },
-  
+
       actions: {
         primary: {
           label: "View Profile",
@@ -156,14 +151,14 @@ function ComplexProps() {
           Reviews: 89,
         },
       },
-  
+
       theme: {
         backgroundColor: "bg-gradient-to-br from-green-300 to-blue-100",
         textColor: "text-gray-800",
         avatarBg: "bg-green-400",
         badgeBg: "bg-green-300",
       },
-  
+
       actions: {
         primary: {
           label: "View Profile",
@@ -196,9 +191,9 @@ function ComplexProps() {
         <h2>{Message}</h2>
       </div>
 
-      <div className={`grid gap-6 grid-cols-1 md:grid-cols-2`} >
+      <div className={`grid gap-6 grid-cols-1 md:grid-cols-2`}>
         {Users.map((userData, idx) => (
-          <ProfileCard key={idx} {...userData}/>
+          <ProfileCard key={idx} {...userData} />
         ))}
       </div>
     </div>
