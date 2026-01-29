@@ -1,27 +1,32 @@
 import React from "react";
 
+type Layouttpes = "vertical" | "horizontal" | "grid";
 
 interface Props {
-  layout?: string;
+  layout?: Layouttpes;
   children? : any;
-  "vertical"? : string;
-  "horizontal"? : string;
-  "grid"? : string;
+  vertical? : string;
+  horizontal? : string;
+  grid? : string;
 
 }
 
-function Card () {
+function Card ({children, }) {
 
 }
 
-function Container ({children, layout = "vertical"} : Props){
+function Container ({children, layout = 'vertical'} : Props){
   const LayoutClasses : Props = {
-    "vertical" : "flex flex-col space-y-4",
-    "grid" : "grid grid-cols-1 md:grid-cols-2 gap-4",
-    "horizontal" : "flex flex-row flex-wrap gap-4"
+    vertical : "flex flex-col space-y-4",
+    grid : "grid grid-cols-1 md:grid-cols-2 gap-4",
+    horizontal : "flex flex-row flex-wrap gap-4"
   }
 
-
+  return (
+    <div className={LayoutClasses[layout]}>
+      {children}
+    </div>
+  )
 }
 function ChildrenProps() {
   return (
