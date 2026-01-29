@@ -49,6 +49,7 @@ function BasicProps() {
         <Buttons text="Large" size="w-60 h-20" onClick={() => setCount(Count+1)} />
       </div>
 
+
       <h3 className={`font-bold text-2xl mb-3 text-black`}>Disabled State</h3>
       <div className={`flex gap-4 mb-6`}>
         <Buttons text="Enabled Button" onClick={() => setCount(Count+1)} />
