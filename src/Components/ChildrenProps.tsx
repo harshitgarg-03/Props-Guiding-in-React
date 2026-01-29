@@ -95,7 +95,7 @@ function ChildrenProps() {
             </button>
           </div>
         </Card>
-        
+  
         <Card title="Warning" color="red">
           <div className={`flex flex-col text-gray-700 font-semibold`}>
             <p>
