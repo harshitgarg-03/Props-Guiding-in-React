@@ -86,6 +86,7 @@ function RefProps() {
         {/* <h3 className={`font-bold text-2xl mb-4 text-gray-900`} >Try it out : </h3> */}
         <CustomInput label="Second Input (with ref)" placeholder="Type Something else  ..." ref={SecondinputRef} />
 
+
         <div className={`py-4 flex gap-4`} >
           <button className={`px-6 text-white py-2 bg-sky-500 rounded-2xl`} onClick={Focusinput} >Focus First Input</button>
           <button className={`px-6 text-white py-2 bg-purple-500 rounded-2xl`} onClick={FocusSecondinput} >Focus Second Input</button>
