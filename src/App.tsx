@@ -3,16 +3,15 @@ import BasicProps from "./Components/BasicProps.tsx";
 import ChildrenProps from "./Components/ChildrenProps";
 import ComplexProps from "./Components/ComplexProps";
 import RefProps from "./Components/RefProps";
-import ThemeToggler from "./Components/ThemeToggler";
-
+import ThemeToggler from "./Components/ThemeToggler.tsx";
 interface NavigationProp {
-  id :   string;
+  id: string;
   title: string;
-  icon : string;
-} 
+  icon: string;
+}
 function Navigation() {
-  const Section : NavigationProp[] = [
-    { id: "Basic", title: "BasicProps", icon: "😊 " } ,
+  const Section: NavigationProp[] = [
+    { id: "Basic", title: "BasicProps", icon: "😊 " },
     { id: "Children", title: "ChildrenProps", icon: "👧 " },
     { id: "Complex", title: "ComplexProps", icon: "⚡ " },
     { id: "Ref", title: "RefProps", icon: "🔗 " },
@@ -20,8 +19,9 @@ function Navigation() {
   ];
   return (
     <nav className={`flex justify-center gap-8 `}>
-      {Section.map((item) => (
+      {Section.map((item, index) => (
         <button
+          key={index}
           className={`bg-[#e8007f] cursor-pointer hover:bg-[#ed0284bb] py-3 px-5 font-bold rounded-2xl mt-6`}
         >
           {item.icon}
@@ -37,28 +37,33 @@ function AppContent() {
     <>
       <Navigation />
       <div className={`mt-12 text-center`}>
-        <h1 className={`font-bold text-4xl mb-2`}>React Prop <span className={`text-amber-300`}> Explained</span> </h1>
-        <p className={`mt-3 text-lg mb-2`}>A Comprehensive guide to understanding props in react</p>
-        <h4 className={` text-md font-bold`}>Built with Bun + Vite + React + Tailwind CSS</h4>
+        <h1 className={`font-bold text-4xl mb-2`}>
+          React Prop <span className={`text-amber-300`}> Explained</span>{" "}
+        </h1>
+        <p className={`mt-3 text-lg mb-2`}>
+          A Comprehensive guide to understanding props in react
+        </p>
+        <h4 className={` text-md font-bold`}>
+          Built with Bun + Vite + React + Tailwind CSS
+        </h4>
       </div>
 
       <div className={`space-y-8`}>
         <div>
-          <BasicProps/>
+          <BasicProps />
         </div>
         <div>
-          <ChildrenProps/>
+          <ChildrenProps />
         </div>
         <div>
-          <ComplexProps/>
+          <ComplexProps />
         </div>
         <div>
-          <RefProps/>
+          <RefProps />
         </div>
         <div>
-          <ThemeToggler/>
+          <ThemeToggler />
         </div>
-
       </div>
     </>
   );
